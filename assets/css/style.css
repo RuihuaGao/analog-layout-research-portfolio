@@ -1,0 +1,429 @@
+/* ---------------------------------------------------------
+   Basic variables
+   --------------------------------------------------------- */
+
+:root {
+  --background: #ffffff;
+  --surface: #f5f7fa;
+  --surface-strong: #e9eef4;
+
+  --text: #1f2933;
+  --text-muted: #52606d;
+
+  --heading: #102a43;
+  --accent: #1f5f8b;
+  --accent-dark: #164665;
+
+  --border: #d8e1e8;
+
+  --content-width: 1040px;
+  --text-width: 780px;
+
+  --radius: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   Global layout
+   --------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.container {
+  width: min(
+    calc(100% - 40px),
+    var(--content-width)
+  );
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+
+.site-header {
+  padding: 56px 0 48px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #102a43,
+      #1f5f8b
+    );
+
+  color: #ffffff;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  opacity: 0.82;
+}
+
+.site-title {
+  display: block;
+
+  max-width: 850px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: clamp(
+    2rem,
+    5vw,
+    3.4rem
+  );
+
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.site-title:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.site-description {
+  max-width: 760px;
+
+  margin: 18px 0 0;
+
+  font-size: 1.18rem;
+  line-height: 1.5;
+
+  opacity: 0.9;
+}
+
+
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
+
+.site-nav {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.nav-links a {
+  color: var(--accent-dark);
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   Main content
+   --------------------------------------------------------- */
+
+.main-content {
+  min-height: 60vh;
+
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+.main-content > h1,
+.main-content > h2,
+.main-content > h3,
+.main-content > p,
+.main-content > ul,
+.main-content > ol,
+.main-content > table,
+.main-content > blockquote {
+  max-width: var(--text-width);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--heading);
+  line-height: 1.25;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  font-size: clamp(
+    2rem,
+    4vw,
+    2.8rem
+  );
+}
+
+h2 {
+  margin-top: 48px;
+  margin-bottom: 18px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 1.65rem;
+}
+
+h3 {
+  margin-top: 34px;
+  margin-bottom: 12px;
+
+  font-size: 1.25rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+strong {
+  color: var(--heading);
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+
+  margin: 28px auto;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+
+/* ---------------------------------------------------------
+   Lists
+   --------------------------------------------------------- */
+
+ul,
+ol {
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   Tables
+   --------------------------------------------------------- */
+
+table {
+  width: 100%;
+
+  margin-top: 24px;
+  margin-bottom: 32px;
+
+  border-collapse: collapse;
+
+  font-size: 0.94rem;
+}
+
+th,
+td {
+  padding: 11px 13px;
+
+  border: 1px solid var(--border);
+
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--surface-strong);
+  color: var(--heading);
+
+  font-weight: 700;
+}
+
+tr:nth-child(even) td {
+  background: var(--surface);
+}
+
+
+/* ---------------------------------------------------------
+   Reusable content blocks
+   --------------------------------------------------------- */
+
+.callout {
+  max-width: var(--text-width);
+
+  margin: 30px 0;
+  padding: 20px 22px;
+
+  background: var(--surface);
+
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.card-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(230px, 1fr)
+    );
+
+  gap: 18px;
+
+  margin: 28px 0;
+}
+
+.card {
+  padding: 22px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.page-links {
+  max-width: var(--text-width);
+
+  margin: 36px 0;
+  padding: 18px 20px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+.site-footer {
+  padding: 38px 0;
+
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+
+  color: var(--text-muted);
+}
+
+.footer-content p {
+  max-width: 760px;
+
+  margin-bottom: 8px;
+}
+
+.footer-small {
+  margin-top: 18px;
+
+  font-size: 0.84rem;
+}
+
+
+/* ---------------------------------------------------------
+   Mobile layout
+   --------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    width: min(
+      calc(100% - 28px),
+      var(--content-width)
+    );
+  }
+
+  .site-header {
+    padding: 42px 0 36px;
+  }
+
+  .site-nav {
+    position: static;
+  }
+
+  .nav-links {
+    gap: 8px 16px;
+  }
+
+  .main-content {
+    padding-top: 36px;
+  }
+
+  table {
+    display: block;
+
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}

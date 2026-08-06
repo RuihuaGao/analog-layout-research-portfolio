@@ -1,0 +1,25 @@
+title: "Analysis and Conceptualization of Analog Layout Techniques"
+
+description: >
+  From Empirical Manual Layout Study
+  to Structure-Aware Automation
+
+author: "Ruihua Gao"
+
+lang: "en"
+
+url: "https://RuihuaGao.github.io"
+
+baseurl: "/analog-layout-research-portfolio"
+
+markdown: kramdown
+
+permalink: pretty
+
+exclude:
+  - README.md
+  - private
+  - restricted
+  - raw-data
+  - source-code
+  - institutional

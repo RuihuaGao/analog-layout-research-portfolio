@@ -1,0 +1,77 @@
+# ---------------------------------------------------------
+# Restricted implementation files
+# ---------------------------------------------------------
+
+*.py
+*.tcl
+*.mag
+*.json
+*.xml
+
+*.spice
+*.hspice
+*.cir
+*.raw
+
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+*.log
+*.key
+*.pem
+*.env
+
+
+# ---------------------------------------------------------
+# Raw data
+# ---------------------------------------------------------
+
+*.csv
+
+raw-data/
+simulation-data/
+generated-data/
+
+
+# ---------------------------------------------------------
+# Private and institutional directories
+# ---------------------------------------------------------
+
+private/
+restricted/
+source-code/
+institutional/
+internal/
+confidential/
+
+tmp/
+temp/
+backup/
+old/
+
+
+# ---------------------------------------------------------
+# Jekyll build output
+# ---------------------------------------------------------
+
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+
+# ---------------------------------------------------------
+# Editor and operating-system files
+# ---------------------------------------------------------
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+*~
+*.swp
+*.swo
