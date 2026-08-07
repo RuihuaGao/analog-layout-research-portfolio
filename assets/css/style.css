@@ -362,6 +362,133 @@ tr:nth-child(even) td {
 
 
 /* ---------------------------------------------------------
+   Research figures and galleries
+   --------------------------------------------------------- */
+
+.figure-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    );
+
+  gap: 24px;
+
+  margin: 30px 0 42px;
+}
+
+.figure-card {
+  padding: 16px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.figure-card img {
+  width: 100%;
+
+  margin: 0 0 14px;
+
+  background: #ffffff;
+}
+
+.figure-caption {
+  max-width: 900px;
+
+  margin: -12px auto 30px;
+
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.figure-card .figure-caption {
+  margin: 0;
+
+  font-size: 0.88rem;
+}
+
+.large-figure {
+  width: 100%;
+  max-width: 980px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ---------------------------------------------------------
+   Framework flow
+   --------------------------------------------------------- */
+
+.framework-flow {
+  max-width: 620px;
+
+  margin: 34px 0 42px;
+}
+
+.flow-item {
+  padding: 14px 18px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  color: var(--heading);
+
+  font-weight: 650;
+  text-align: center;
+}
+
+.flow-arrow {
+  padding: 5px 0;
+
+  color: var(--accent);
+
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   Generator hierarchy
+   --------------------------------------------------------- */
+
+.hierarchy-level {
+  max-width: 780px;
+
+  margin: 22px 0;
+  padding: 20px 22px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.hierarchy-level h3 {
+  margin-top: 0;
+}
+
+.hierarchy-arrow {
+  max-width: 780px;
+
+  color: var(--accent);
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
    Footer
    --------------------------------------------------------- */
 

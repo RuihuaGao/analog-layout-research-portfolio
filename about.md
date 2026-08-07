@@ -28,6 +28,13 @@ The work combines:
 - hierarchical assembly;
 - access-aware routing.
 
+## Thesis Structure
+
+This portfolio follows the central research path of the thesis:
+
+**manual study → conceptual framework → automation-oriented representation
+→ reusable generation → hierarchical physical integration**
+
 ## Research Interests
 
 - Analog layout automation

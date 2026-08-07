@@ -30,8 +30,8 @@ The GitHub Pages website will be available at:
 
 ## Status
 
-The website is being developed in three stages:
+Development is organized in three stages:
 
-1. Site structure and public-scope pages
-2. Core research content and selected figures
-3. Detailed representation, placement, and routing pages
+- [x] Site structure and public-scope pages
+- [x] Core research content and selected figures
+- [ ] Detailed representation, placement, and routing documentation

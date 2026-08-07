@@ -42,42 +42,72 @@ The work follows a manual-to-automatic sequence:
 7. **Access-aware top-level routing**  
    Guard-ring, point-to-point, and multi-terminal connections are handled by separate routing policies.
 
-## Main Areas
+## Explore the Research
 
 <div class="card-grid">
 
 <div class="card">
-<h3>Manual Analysis</h3>
+<h3>Manual Layout Study</h3>
+
 <p>
-Controlled layout variants are used to study spacing,
-guard-ring isolation, matching-oriented placement,
-dummy devices, and routing access.
+Controlled layout variants examine spacing, guard-ring isolation,
+and matching-oriented placement.
 </p>
+
+<p>
+<a href="{{ '/manual-study/' | relative_url }}">
+View the manual study →
+</a>
+</p>
+
 </div>
 
 <div class="card">
-<h3>Layout Representation</h3>
+<h3>Conceptual Framework</h3>
+
 <p>
-Generated modules retain both geometric information
-and analog design intent for later placement,
-routing, and hierarchical assembly.
+Manual observations are organized by physical effect,
+evaluation metric, trade-off, and automation implication.
 </p>
+
+<p>
+<a href="{{ '/framework/' | relative_url }}">
+View the framework →
+</a>
+</p>
+
 </div>
 
 <div class="card">
-<h3>Automatic Generation</h3>
+<h3>Generator Architecture</h3>
+
 <p>
-Reusable primitives and layout structures are composed
-into selected analog generator families.
+Reusable device and row-level structures are composed into
+selected analog module families.
 </p>
+
+<p>
+<a href="{{ '/generators/' | relative_url }}">
+Explore the generators →
+</a>
+</p>
+
 </div>
 
 <div class="card">
-<h3>Physical Integration</h3>
+<h3>Full-Flow Case Study</h3>
+
 <p>
-Placement, well-domain repair, hierarchical assembly,
-and access-aware routing form one prototype flow.
+Generated modules are placed, repaired for well-domain constraints,
+assembled hierarchically, and routed at top level.
 </p>
+
+<p>
+<a href="{{ '/case-study/' | relative_url }}">
+View the case study →
+</a>
+</p>
+
 </div>
 
 </div>
