@@ -48,11 +48,7 @@ The case passes through the following stages:
 
 ## Full-Flow Layout
 
-<img
-  class="large-figure"
-  src="{{ '/assets/images/case-study/full-flow-layout.png' | relative_url }}"
-  alt="Final hierarchical layout of the full-flow op-amp case study"
->
+![Final hierarchical layout of the full-flow op-amp case study]({{ '/assets/images/case-study/full-flow-layout.png' | relative_url }})
 
 <p class="figure-caption">
 Full-flow layout of the representative case. Six generated modules
