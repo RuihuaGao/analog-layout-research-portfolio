@@ -36,7 +36,7 @@ explicit physical-design metadata.
 
 Four manual variants were used to separate the main layout decisions.
 
-<div class="figure-grid">
+<div class="figure-grid manual-variant-grid">
 
 <div class="figure-card">
 

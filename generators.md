@@ -63,7 +63,13 @@ Passive capacitor construction with explicit plate terminals.
 
 ## Selected Generated Modules
 
-<div class="figure-grid">
+### MOS-Based Modules
+
+The MOS-based generator hierarchy reuses the common device primitive
+through single-device, interdigitated, common-centroid, and compound
+structures.
+
+<div class="figure-grid generator-grid">
 
 <div class="figure-card">
 
@@ -149,7 +155,15 @@ A common-centroid input array combined with a split-diffusion cascode row.
 
 </div>
 
-<div class="figure-card">
+</div>
+
+### Passive Module
+
+The capacitor generator forms a separate passive branch. It uses a MIM
+capacitor primitive rather than the MOS-device construction, while
+exporting the same type of module interface for top-level integration.
+
+<div class="passive-module-card">
 
 <img
   src="{{ '/assets/images/generators/mim-capacitor.png' | relative_url }}"
@@ -160,8 +174,6 @@ A common-centroid input array combined with a split-diffusion cascode row.
 <strong>MIM capacitor.</strong>
 Simplified passive module with explicit plate access for top-level integration.
 </p>
-
-</div>
 
 </div>
 

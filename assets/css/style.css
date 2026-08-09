@@ -241,6 +241,11 @@ strong {
   color: var(--heading);
 }
 
+
+/* ---------------------------------------------------------
+   Images
+   --------------------------------------------------------- */
+
 img {
   display: block;
 
@@ -362,7 +367,7 @@ tr:nth-child(even) td {
 
 
 /* ---------------------------------------------------------
-   Research figures and galleries
+   Research figures and general galleries
    --------------------------------------------------------- */
 
 .figure-grid {
@@ -390,6 +395,7 @@ tr:nth-child(even) td {
 
 .figure-card img {
   width: 100%;
+  height: auto;
 
   margin: 0 0 14px;
 
@@ -416,9 +422,72 @@ tr:nth-child(even) td {
 .large-figure {
   width: 100%;
   max-width: 980px;
+  height: auto;
 
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/* ---------------------------------------------------------
+   Manual layout variant gallery
+
+   Desktop:
+   A | B
+   C | D
+
+   The images preserve their original aspect ratio.
+   --------------------------------------------------------- */
+
+.figure-grid.manual-variant-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.figure-grid.manual-variant-grid .figure-card img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* ---------------------------------------------------------
+   Generator gallery
+
+   Desktop:
+   3 columns × 2 rows for MOS-based modules.
+   --------------------------------------------------------- */
+
+.figure-grid.generator-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+/* ---------------------------------------------------------
+   Passive generator module
+   --------------------------------------------------------- */
+
+.passive-module-card {
+  max-width: 520px;
+
+  margin: 28px 0 42px;
+  padding: 16px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.passive-module-card img {
+  width: 100%;
+  height: auto;
+
+  margin: 0 0 14px;
+
+  background: #ffffff;
+}
+
+.passive-module-card .figure-caption {
+  margin: 0;
 }
 
 
@@ -515,6 +584,24 @@ tr:nth-child(even) td {
 
 
 /* ---------------------------------------------------------
+   Tablet layout
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  /*
+     Generator gallery changes from 3 columns
+     to 2 columns on medium-width screens.
+  */
+
+  .figure-grid.generator-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* ---------------------------------------------------------
    Mobile layout
    --------------------------------------------------------- */
 
@@ -547,10 +634,35 @@ tr:nth-child(even) td {
     padding-top: 36px;
   }
 
+
+  /* Tables */
+
   table {
     display: block;
 
     max-width: 100%;
     overflow-x: auto;
   }
+
+
+  /* Manual A/B/C/D become a single column */
+
+  .figure-grid.manual-variant-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Generator modules become a single column */
+
+  .figure-grid.generator-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Passive module uses the full available width */
+
+  .passive-module-card {
+    max-width: 100%;
+  }
+
 }
