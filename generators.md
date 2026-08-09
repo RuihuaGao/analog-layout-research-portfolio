@@ -18,7 +18,7 @@ topology.
 
 ## Reuse Hierarchy
 
-<div class="hierarchy-level">
+<div class="hierarchy-level" markdown="1">
 
 ### Primitive Level
 
@@ -33,7 +33,7 @@ Passive capacitor construction with explicit plate terminals.
 
 <div class="hierarchy-arrow">↓</div>
 
-<div class="hierarchy-level">
+<div class="hierarchy-level" markdown="1">
 
 ### Basic Structure Level
 
@@ -46,7 +46,7 @@ Passive capacitor construction with explicit plate terminals.
 
 <div class="hierarchy-arrow">↓</div>
 
-<div class="hierarchy-level">
+<div class="hierarchy-level" markdown="1">
 
 ### Compound Module Level
 

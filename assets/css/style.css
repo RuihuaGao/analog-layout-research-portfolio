@@ -443,9 +443,59 @@ tr:nth-child(even) td {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.figure-grid.manual-variant-grid .figure-card img {
-  width: 100%;
+/* ---------------------------------------------------------
+   Manual layout variant gallery
+
+   Desktop:
+   A | B
+   C | D
+
+   Image widths approximately preserve the relative
+   physical layout dimensions.
+   --------------------------------------------------------- */
+
+.figure-grid.manual-variant-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.figure-grid.manual-variant-grid .figure-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.figure-grid.manual-variant-grid .manual-layout-image {
+  display: block;
   height: auto;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 14px;
+
+  object-fit: contain;
+}
+
+/* Relative physical width:
+   maximum width = 42.9 µm
+*/
+
+.figure-grid.manual-variant-grid .layout-a {
+  width: 85.55%;
+}
+
+.figure-grid.manual-variant-grid .layout-b {
+  width: 88.34%;
+}
+
+.figure-grid.manual-variant-grid .layout-c {
+  width: 100%;
+}
+
+.figure-grid.manual-variant-grid .layout-d {
+  width: 100%;
+}
+
+.figure-grid.manual-variant-grid .figure-caption {
+  margin-top: auto;
 }
 
 

@@ -41,6 +41,7 @@ Four manual variants were used to separate the main layout decisions.
 <div class="figure-card">
 
 <img
+  class="manual-layout-image layout-a"
   src="{{ '/assets/images/manual/layout-a.png' | relative_url }}"
   alt="Manual layout variant A"
 >
@@ -48,6 +49,7 @@ Four manual variants were used to separate the main layout decisions.
 <p class="figure-caption">
 <strong>Variant A.</strong>
 Clustered baseline without guard rings.
+Layout boundary: 36.7 µm × 29.6 µm.
 </p>
 
 </div>
@@ -55,6 +57,7 @@ Clustered baseline without guard rings.
 <div class="figure-card">
 
 <img
+  class="manual-layout-image layout-b"
   src="{{ '/assets/images/manual/layout-b.png' | relative_url }}"
   alt="Manual layout variant B"
 >
@@ -62,6 +65,7 @@ Clustered baseline without guard rings.
 <p class="figure-caption">
 <strong>Variant B.</strong>
 Baseline with module-level guard-ring structures.
+Layout boundary: 37.9 µm × 29.6 µm.
 </p>
 
 </div>
@@ -69,6 +73,7 @@ Baseline with module-level guard-ring structures.
 <div class="figure-card">
 
 <img
+  class="manual-layout-image layout-c"
   src="{{ '/assets/images/manual/layout-c.png' | relative_url }}"
   alt="Manual layout variant C"
 >
@@ -76,6 +81,7 @@ Baseline with module-level guard-ring structures.
 <p class="figure-caption">
 <strong>Variant C.</strong>
 Matching-oriented variant using interdigitation.
+Layout boundary: 42.9 µm × 29.6 µm.
 </p>
 
 </div>
@@ -83,14 +89,15 @@ Matching-oriented variant using interdigitation.
 <div class="figure-card">
 
 <img
+  class="manual-layout-image layout-d"
   src="{{ '/assets/images/manual/layout-d.png' | relative_url }}"
   alt="Manual layout variant D"
 >
 
 <p class="figure-caption">
 <strong>Variant D.</strong>
-Matching-oriented variant with a common-centroid
-differential pair.
+Matching-oriented variant with a common-centroid differential pair.
+Layout boundary: 42.9 µm × 33.2 µm.
 </p>
 
 </div>
