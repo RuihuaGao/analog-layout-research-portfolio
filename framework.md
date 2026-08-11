@@ -129,7 +129,7 @@ implemented in the automatic part of the work.
 
 <div class="page-links">
 Next:
-<a href="{{ '/generators/' | relative_url }}">
-reusable generator architecture
+<a href="{{ '/representation/' | relative_url }}">
+automation-oriented representation
 </a>.
 </div>

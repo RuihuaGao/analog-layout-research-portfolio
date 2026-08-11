@@ -79,6 +79,22 @@ View the framework →
 </div>
 
 <div class="card">
+<h3>Automation-Oriented Representation</h3>
+
+<p>
+Module geometry and selected analog-aware metadata are preserved
+as explicit interfaces for placement, assembly, and routing.
+</p>
+
+<p>
+<a href="{{ '/representation/' | relative_url }}">
+View the representation →
+</a>
+</p>
+
+</div>
+
+<div class="card">
 <h3>Generator Architecture</h3>
 
 <p>
