@@ -234,7 +234,7 @@ physically consistent.
 
 <div class="page-links">
 Next:
-<a href="{{ '/case-study/' | relative_url }}">
-full-flow case study
+<a href="{{ '/placement/' | relative_url }}">
+analog-aware placement
 </a>.
 </div>

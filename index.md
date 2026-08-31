@@ -111,6 +111,22 @@ Explore the generators →
 </div>
 
 <div class="card">
+<h3>Analog-Aware Placement</h3>
+
+<p>
+Multistart B*-tree placement combines generic and analog-informed seed
+topologies with local search and post-placement n-well-domain repair.
+</p>
+
+<p>
+<a href="{{ '/placement/' | relative_url }}">
+Explore the placement method →
+</a>
+</p>
+
+</div>
+
+<div class="card">
 <h3>Full-Flow Case Study</h3>
 
 <p>
