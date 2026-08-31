@@ -41,25 +41,16 @@ keeps selected layout intent available to downstream stages.
 
 ## Representation Flow
 
-The information path can be summarized as:
+The information path from circuit-level intent to physical integration is
+summarized below.
 
-**Circuit structure and layout intent**
+![Automation-oriented representation flow]({{ '/assets/images/representation/representation-flow.png' | relative_url }})
 
-↓
-
-**Generator specification**
-
-↓
-
-**Generated hierarchical module**
-
-↓
-
-**Module interface and analog-aware metadata**
-
-↓
-
-**Placement, well-domain handling, hierarchical assembly, and routing**
+<p class="figure-caption">
+Information flow from circuit structure and layout intent through module
+generation and interface construction to placement, well-domain handling,
+hierarchical assembly, and access-aware routing.
+</p>
 
 The generator is therefore not only a geometry producer. It also creates
 the physical-design interface used by later stages.
@@ -76,9 +67,18 @@ information required outside the child cell.
 | External terminal geometry | Identifies the physical geometry belonging to externally visible terminals |
 | Routing access geometry | Identifies locations or regions suitable for top-level connection |
 | Guard-ring geometry | Provides extended regions for bulk and guard-ring connectivity |
-| Well-domain information | Supports domain-aware placement, spacing repair, and local well connection |
+| Well-domain information | Supports same-nwell domain grouping, local n-well bridge decisions, and different-nwell spacing repair |
 | Source/bulk relation | Preserves body-domain connectivity requirements |
 | Family and topology metadata | Retains structural context for downstream policies |
+
+![Generated module interface]({{ '/assets/images/representation/module-interface.png' | relative_url }})
+
+<p class="figure-caption">
+Conceptual interface of a generated module. The module boundary,
+placement footprint, external terminal geometry, routing access,
+guard-ring geometry, and well-domain information are exposed at
+different abstraction levels for downstream physical-design stages.
+</p>
 
 The interface is intentionally smaller than the complete internal layout.
 Downstream stages do not need to reconstruct every finger, dummy device,
@@ -102,32 +102,33 @@ as a simple rectangular device.
 
 ## Terminal Geometry and Routing Access
 
-Electrical terminal geometry and legal routing access are also treated as
-different concepts.
+Electrical terminal geometry and top-level routing access are treated as
+related but distinct concepts.
 
-A terminal may contain:
+A generated terminal may contain an extended bus, plate, or several
+electrically equivalent conductive shapes. These geometries define the
+physical extent of the terminal. The downstream router, however, should
+not assume that every point on this geometry is equally suitable for a
+new top-level connection.
 
-- a metal bus;
-- a contact or via region;
-- an extended capacitor plate;
-- several equivalent conductive shapes.
-
-All of these geometries can belong to the same electrical terminal.
-However, the top-level router should not assume that every point on every
-shape is equally suitable for connection.
+The exported routing-access information identifies preferred or legal
+connection regions according to the local module construction. Depending
+on the terminal, this may correspond to a bus edge, a boundary extension,
+an existing access segment, or an extended plate edge.
 
 The representation therefore distinguishes:
 
-**terminal geometry** — geometry electrically associated with the terminal;
+**terminal geometry** — the conductive geometry electrically associated
+with an external terminal;
 
 from
 
-**routing access geometry** — geometry intentionally exposed for safe and
-useful top-level connection.
+**routing access geometry** — the subset or extension intentionally
+exposed for safe and useful top-level connection.
 
-This distinction allows the router to choose among boundary access,
-bus edges, existing routing objects, or other valid access regions without
-re-entering the module interior unnecessarily.
+This distinction allows the top-level router to reuse generator-defined
+access structures while avoiding unnecessary intrusion into the module
+interior.
 
 ## Internal Closure and Top-Level Responsibility
 
