@@ -54,6 +54,8 @@ and the routing stages.
   >
   <figcaption>
     Internal module closure is reduced to effective top-level endpoints.
+    Parent-level routing then uses access-safe geometry such as bus edges,
+    capacitor-plate edges, guard-ring edges, and optional boundary access.
   </figcaption>
 </figure>
 
