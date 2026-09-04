@@ -47,8 +47,7 @@ This portfolio follows the central research path of the thesis:
 
 **Ruihua Gao**
 
-M.Sc. Communications Engineering
-
+M.Sc. Communications Engineering  
 Technical University of Munich
 
 Contact information, curriculum vitae, and selected application material will be added after the public content and permissions have been reviewed.
