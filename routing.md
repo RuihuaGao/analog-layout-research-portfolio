@@ -307,37 +307,63 @@ space.
 The implemented routing flow separates the main responsibilities instead
 of solving all nets with one generic router.
 
-The sequence can be summarized as:
+<div class="routing-flow">
 
-**Build routing plan**
+  <div class="routing-flow-step">
+    <strong>Build Routing Plan</strong>
+    <span>Placed Module Interfaces</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Collapse internal closure into effective pins**
+  <div class="routing-flow-step">
+    <strong>Collapse Internal Closure</strong>
+    <span>Effective Top-Level Endpoints</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Classify remaining nets and collect guard rings**
+  <div class="routing-flow-step">
+    <strong>Classify Nets</strong>
+    <span>Signal, Bulk, Guard Ring</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Resolve direct or boundary-safe access**
+  <div class="routing-flow-step">
+    <strong>Resolve Safe Access</strong>
+    <span>Direct or Boundary Access</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Route guard-ring and bulk-related tasks**
+  <div class="routing-flow-step">
+    <strong>Guard-Ring / Bulk Routing</strong>
+    <span>Extended Access Geometry</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Route point-to-point signals**
+  <div class="routing-flow-step">
+    <strong>Point-to-Point Routing</strong>
+    <span>Access-Safe Manhattan Paths</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Route multi-terminal signals with incremental trees**
+  <div class="routing-flow-step">
+    <strong>Multi-Terminal Routing</strong>
+    <span>Incremental Tree</span>
+  </div>
 
-↓
+  <div class="routing-flow-arrow">→</div>
 
-**Export selected top-level interfaces**
+  <div class="routing-flow-step">
+    <strong>Export Interfaces</strong>
+    <span>Selected Top-Level Ports</span>
+  </div>
+
+</div>
 
 Keeping these stages separate allows each routing object to use a physical
 connection policy appropriate to its geometry.
