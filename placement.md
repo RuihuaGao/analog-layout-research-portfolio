@@ -50,6 +50,15 @@ This representation provides a compact combinatorial search space while
 allowing the actual module dimensions and placement footprints to remain
 unchanged.
 
+![B*-tree representation and contour-packed floorplan]({{ '/assets/images/placement/bstar-tree-relations.png' | relative_url }})
+
+<p class="figure-caption">
+B*-tree representation and the corresponding contour-packed floorplan.
+Left-child relations initialize right-of-parent placement, while
+right-child relations initialize above-parent placement; the contour
+determines the final vertical coordinate during packing.
+</p>
+
 ## Placement Footprints
 
 The placer operates on the effective placement geometry exported into the
@@ -138,6 +147,21 @@ If the expected analog-role pattern is not recognized, the implementation
 falls back to the generic row-stack seed instead of forcing the
 circuit-specific organization.
 
+![Representative placement seed modes]({{ '/assets/images/placement/placement-seeds.png' | relative_url }})
+
+<p class="figure-caption">
+Representative initialization strategies ranging from generic
+area-descending organization to row-aware, same-nwell, and
+circuit-role-aware placement seeds.
+</p>
+
+**Abbreviations:** CCM = current-mirror-related module, e.g. cascode current mirror;
+DP = differential-pair module;
+PM0/PM1 = same-nwell PMOS modules;
+OUT = output-related module;
+CAP = compensation capacitor;
+REF = remaining side/reference module.
+
 ## Local Search
 
 Each seed is improved using a best-improvement hybrid hill-climbing
@@ -223,6 +247,15 @@ requirement is satisfied.
 A separate post-placement repair stage is therefore applied after the
 B*-tree search.
 
+![Post-placement well-domain repair and same-nwell compaction]({{ '/assets/images/placement/well-domain-repair.png' | relative_url }})
+
+<p class="figure-caption">
+Post-placement well-domain handling. Different-nwell spacing violations
+are removed through local repair, while an optional same-nwell cohesion
+step can compact domain members to support a short, bridgeable local
+n-well connection.
+</p>
+
 The repair stage evaluates the placed module geometry as a proxy for the
 corresponding n-well-domain extent and locally shifts modules or domain
 member groups to reduce remaining **different-nwell spacing violations**.
@@ -269,40 +302,58 @@ and the subsequent repair stage.
 
 ## Placement Flow
 
-The complete placement sequence can be summarized as:
+The complete placement sequence is summarized below.
 
-**Effective module footprints and analog-aware metadata**
+<div class="placement-flow">
 
-↓
+  <div class="placement-flow-step">
+    <strong>Effective Footprints</strong>
+    <span>&amp; Analog-Aware Metadata</span>
+  </div>
 
-**Multiple B*-tree seed topologies**
+  <div class="placement-flow-arrow">→</div>
 
-↓
+  <div class="placement-flow-step">
+    <strong>Multiple B*-Tree Seeds</strong>
+    <span>Generic and Analog-Aware</span>
+  </div>
 
-**Contour packing**
+  <div class="placement-flow-arrow">→</div>
 
-↓
+  <div class="placement-flow-step">
+    <strong>Contour Packing</strong>
+    <span>Initial Legal Placement</span>
+  </div>
 
-**Best-improvement local search**
+  <div class="placement-flow-arrow">→</div>
 
-↓
+  <div class="placement-flow-step">
+    <strong>Local Search</strong>
+    <span>Best-Improvement</span>
+  </div>
 
-**Best seed selection**
+  <div class="placement-flow-arrow">→</div>
 
-↓
+  <div class="placement-flow-step">
+    <strong>Best Seed Selection</strong>
+    <span>Lowest Final Cost</span>
+  </div>
 
-**Different-nwell spacing repair**
+  <div class="placement-flow-arrow">→</div>
 
-↓
+  <div class="placement-flow-step">
+    <strong>Different-Nwell Repair</strong>
+    <span>Spacing Legalization</span>
+  </div>
 
-**Optional same-nwell-domain compaction**
+  <div class="placement-flow-arrow">→</div>
+
+  <div class="placement-flow-step">
+    <strong>Same-Nwell Compaction</strong>
+    <span>Optional Cohesion</span>
+  </div>
+
+</div>
 
 The repaired placement is then passed to hierarchical assembly, where
 placement-dependent well connections and top-level routing can be added.
-
-<div class="page-links">
-Next:
-<a href="{{ '/case-study/' | relative_url }}">
-full-flow case study
-</a>.
-</div>
