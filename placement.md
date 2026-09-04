@@ -50,14 +50,19 @@ This representation provides a compact combinatorial search space while
 allowing the actual module dimensions and placement footprints to remain
 unchanged.
 
-![B*-tree representation and contour-packed floorplan]({{ '/assets/images/placement/bstar-tree-relations.png' | relative_url }})
-
-<p class="figure-caption">
-B*-tree representation and the corresponding contour-packed floorplan.
-Left-child relations initialize right-of-parent placement, while
-right-child relations initialize above-parent placement; the contour
-determines the final vertical coordinate during packing.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/placement/bstar-tree-relations.png' | relative_url }}"
+    alt="B*-tree representation and corresponding contour-packed floorplan"
+    loading="lazy"
+  >
+  <figcaption>
+    B*-tree representation and the corresponding contour-packed floorplan.
+    Left-child relations initialize right-of-parent placement, while
+    right-child relations initialize above-parent placement; the contour
+    determines the final vertical coordinate during packing.
+  </figcaption>
+</figure>
 
 ## Placement Footprints
 
@@ -147,13 +152,18 @@ If the expected analog-role pattern is not recognized, the implementation
 falls back to the generic row-stack seed instead of forcing the
 circuit-specific organization.
 
-![Representative placement seed modes]({{ '/assets/images/placement/placement-seeds.png' | relative_url }})
-
-<p class="figure-caption">
-Representative initialization strategies ranging from generic
-area-descending organization to row-aware, same-nwell, and
-circuit-role-aware placement seeds.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/placement/placement-seeds.png' | relative_url }}"
+    alt="Representative generic and analog-aware B*-tree placement seed modes"
+    loading="lazy"
+  >
+  <figcaption>
+    Representative initialization strategies ranging from generic
+    area-descending organization to row-aware, same-nwell, and
+    circuit-role-aware placement seeds.
+  </figcaption>
+</figure>
 
 **Abbreviations:** CCM = current-mirror-related module, e.g. cascode current mirror;
 DP = differential-pair module;
@@ -247,14 +257,19 @@ requirement is satisfied.
 A separate post-placement repair stage is therefore applied after the
 B*-tree search.
 
-![Post-placement well-domain repair and same-nwell compaction]({{ '/assets/images/placement/well-domain-repair.png' | relative_url }})
-
-<p class="figure-caption">
-Post-placement well-domain handling. Different-nwell spacing violations
-are removed through local repair, while an optional same-nwell cohesion
-step can compact domain members to support a short, bridgeable local
-n-well connection.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/placement/well-domain-repair.png' | relative_url }}"
+    alt="Post-placement different-nwell spacing repair and optional same-nwell compaction"
+    loading="lazy"
+  >
+  <figcaption>
+    Post-placement well-domain handling. Different-nwell spacing violations
+    are removed through local repair, while an optional same-nwell cohesion
+    step can compact domain members to support a short, bridgeable local
+    n-well connection.
+  </figcaption>
+</figure>
 
 The repair stage evaluates the placed module geometry as a proxy for the
 corresponding n-well-domain extent and locally shifts modules or domain
@@ -304,51 +319,51 @@ and the subsequent repair stage.
 
 The complete placement sequence is summarized below.
 
-<div class="placement-flow">
+<div class="research-flow" aria-label="Placement flow">
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Effective Footprints</strong>
     <span>&amp; Analog-Aware Metadata</span>
   </div>
 
-  <div class="placement-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Multiple B*-Tree Seeds</strong>
     <span>Generic and Analog-Aware</span>
   </div>
 
-  <div class="placement-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Contour Packing</strong>
     <span>Initial Legal Placement</span>
   </div>
 
-  <div class="placement-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Local Search</strong>
     <span>Best-Improvement</span>
   </div>
 
-  <div class="placement-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Best Seed Selection</strong>
     <span>Lowest Final Cost</span>
   </div>
 
-  <div class="placement-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Different-Nwell Repair</strong>
     <span>Spacing Legalization</span>
   </div>
 
-  <div class="placement-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="placement-flow-step">
+  <div class="research-flow-step">
     <strong>Same-Nwell Compaction</strong>
     <span>Optional Cohesion</span>
   </div>

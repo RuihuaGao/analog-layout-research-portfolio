@@ -48,13 +48,18 @@ The case passes through the following stages:
 
 ## Full-Flow Layout
 
-![Final hierarchical layout of the full-flow op-amp case study]({{ '/assets/images/case-study/full-flow-layout.png' | relative_url }})
-
-<p class="figure-caption">
-Full-flow layout of the representative case. Six generated modules
-remain hierarchical child cells while placement-dependent well-domain
-connections and inter-module routes are added at top level.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/case-study/full-flow-layout.png' | relative_url }}"
+    alt="Final hierarchical layout of the representative full-flow op-amp case study"
+    loading="lazy"
+  >
+  <figcaption>
+    Full-flow layout of the representative case. Six generated modules
+    remain hierarchical child cells while placement-dependent well-domain
+    connections and inter-module routes are added at top level.
+  </figcaption>
+</figure>
 
 ## Integration Records
 

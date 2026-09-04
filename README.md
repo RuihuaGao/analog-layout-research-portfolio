@@ -34,4 +34,6 @@ Development is organized in three stages:
 
 - [x] Site structure and public-scope pages
 - [x] Core research content and selected figures
-- [ ] Detailed representation, placement, and routing documentation
+- [x] Detailed representation, placement, and routing documentation
+
+The portfolio is now in final review and visual-polish status.

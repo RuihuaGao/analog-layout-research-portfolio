@@ -17,41 +17,47 @@ evaluation method, and introduces implementation trade-offs.
 The conceptual framework organizes this reasoning before it is
 translated into automation.
 
-<div class="framework-flow">
+<div class="research-flow" aria-label="Conceptual framework flow">
 
-<div class="flow-item">
-Layout-relevant structure
-</div>
+  <div class="research-flow-step">
+    <strong>Layout-Relevant Structure</strong>
+    <span>Circuit Role and Physical Context</span>
+  </div>
 
-<div class="flow-arrow">↓</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-<div class="flow-item">
-Layout technique
-</div>
+  <div class="research-flow-step">
+    <strong>Layout Technique</strong>
+    <span>Matching, Isolation, or Access Strategy</span>
+  </div>
 
-<div class="flow-arrow">↓</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-<div class="flow-item">
-Targeted physical effect
-</div>
+  <div class="research-flow-step">
+    <strong>Targeted Physical Effect</strong>
+    <span>Mismatch, Coupling, or Parasitics</span>
+  </div>
 
-<div class="flow-arrow">↓</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-<div class="flow-item">
-Evaluation metric
-</div>
+  <div class="research-flow-step">
+    <strong>Evaluation Metric</strong>
+    <span>Effect-Specific Measurement</span>
+  </div>
 
-<div class="flow-arrow">↓</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-<div class="flow-item">
-Implementation trade-off
-</div>
+  <div class="research-flow-step">
+    <strong>Implementation Trade-Off</strong>
+    <span>Area, Complexity, and Routability</span>
+  </div>
 
-<div class="flow-arrow">↓</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-<div class="flow-item">
-Automation implication
-</div>
+  <div class="research-flow-step">
+    <strong>Automation Implication</strong>
+    <span>Generator or Downstream Policy</span>
+  </div>
 
 </div>
 

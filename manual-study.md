@@ -140,20 +140,30 @@ Guard-ring insertion targets substrate and well-domain disturbance
 rather than device matching. The two manual layouts are therefore
 compared using a controlled body-domain disturbance model.
 
-![AC disturbance-transfer comparison with and without guard rings]({{ '/assets/images/manual/guard-ring-ac.png' | relative_url }})
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/manual/guard-ring-ac.png' | relative_url }}"
+    alt="AC disturbance-transfer comparison with and without guard rings"
+    loading="lazy"
+  >
+  <figcaption>
+    AC disturbance-transfer comparison. The guarded variant exhibits a
+    smaller output response under the adopted body-domain sensitivity model.
+  </figcaption>
+</figure>
 
-<p class="figure-caption">
-AC disturbance-transfer comparison. The guarded variant exhibits a
-smaller output response under the adopted body-domain sensitivity model.
-</p>
-
-![Transient disturbance comparison with and without guard rings]({{ '/assets/images/manual/guard-ring-transient.png' | relative_url }})
-
-<p class="figure-caption">
-Transient comparison under a pulsed aggressor. The main disturbance
-appears around pulse transitions, while the guarded case shows a smaller
-response.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/manual/guard-ring-transient.png' | relative_url }}"
+    alt="Transient disturbance comparison with and without guard rings"
+    loading="lazy"
+  >
+  <figcaption>
+    Transient comparison under a pulsed aggressor. The main disturbance
+    appears around pulse transitions, while the guarded case shows a smaller
+    response.
+  </figcaption>
+</figure>
 
 The model uses normalized disturbance-transfer factors to distinguish
 the guarded and unguarded body domains.
@@ -173,12 +183,17 @@ their intended benefit appears primarily in mismatch sensitivity,
 distribution spread, and tail behaviour rather than as a large shift
 of the nominal operating point.
 
-![ECDF of absolute input offset for clustered, interdigitated, and common-centroid layouts]({{ '/assets/images/manual/offset-ecdf.png' | relative_url }})
-
-<p class="figure-caption">
-Empirical cumulative distribution of absolute input offset for the
-three matching-layout variants.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/manual/offset-ecdf.png' | relative_url }}"
+    alt="Empirical cumulative distribution of absolute input offset for clustered, interdigitated, and common-centroid layouts"
+    loading="lazy"
+  >
+  <figcaption>
+    Empirical cumulative distribution of absolute input offset for the
+    three matching-layout variants.
+  </figcaption>
+</figure>
 
 | Metric | Clustered B | Interdigitated C | Common centroid D |
 |---|---:|---:|---:|

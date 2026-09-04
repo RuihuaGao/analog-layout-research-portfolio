@@ -44,13 +44,49 @@ keeps selected layout intent available to downstream stages.
 The information path from circuit-level intent to physical integration is
 summarized below.
 
-![Automation-oriented representation flow]({{ '/assets/images/representation/representation-flow.png' | relative_url }})
+<div class="research-flow" aria-label="Automation-oriented representation flow">
 
-<p class="figure-caption">
-Information flow from circuit structure and layout intent through module
-generation and interface construction to placement, well-domain handling,
-hierarchical assembly, and access-aware routing.
-</p>
+  <div class="research-flow-step">
+    <strong>Circuit Structure</strong>
+    <span>&amp; Layout Intent</span>
+  </div>
+
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
+
+  <div class="research-flow-step">
+    <strong>Generator Specification</strong>
+    <span>Structure and Layout Policy</span>
+  </div>
+
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
+
+  <div class="research-flow-step">
+    <strong>Generated Module</strong>
+    <span>Hierarchical Child Cell</span>
+  </div>
+
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
+
+  <div class="research-flow-step">
+    <strong>Module Interface</strong>
+    <span>&amp; Analog-Aware Metadata</span>
+  </div>
+
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
+
+  <div class="research-flow-step">
+    <strong>Physical Integration</strong>
+    <span>Placement, Well Handling &amp; Assembly</span>
+  </div>
+
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
+
+  <div class="research-flow-step">
+    <strong>Access-Aware Routing</strong>
+    <span>Top-Level Connectivity</span>
+  </div>
+
+</div>
 
 The generator is therefore not only a geometry producer. It also creates
 the physical-design interface used by later stages.
@@ -71,14 +107,19 @@ information required outside the child cell.
 | Source/bulk relation | Preserves body-domain connectivity requirements |
 | Family and topology metadata | Retains structural context for downstream policies |
 
-![Generated module interface]({{ '/assets/images/representation/module-interface.png' | relative_url }})
-
-<p class="figure-caption">
-Conceptual interface of a generated module. The module boundary,
-placement footprint, external terminal geometry, routing access,
-guard-ring geometry, and well-domain information are exposed at
-different abstraction levels for downstream physical-design stages.
-</p>
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/representation/module-interface.png' | relative_url }}"
+    alt="Conceptual generated-module interface with boundary, placement footprint, terminal geometry, routing access, guard-ring geometry, and well-domain information"
+    loading="lazy"
+  >
+  <figcaption>
+    Conceptual interface of a generated module. The module boundary,
+    placement footprint, external terminal geometry, routing access,
+    guard-ring geometry, and well-domain information are exposed at
+    different abstraction levels for downstream physical-design stages.
+  </figcaption>
+</figure>
 
 The interface is intentionally smaller than the complete internal layout.
 Downstream stages do not need to reconstruct every finger, dummy device,

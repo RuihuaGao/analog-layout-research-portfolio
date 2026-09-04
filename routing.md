@@ -46,11 +46,11 @@ The routing plan combines:
 This plan acts as a contract between generation, hierarchical assembly,
 and the routing stages.
 
-<figure class="large-figure">
+<figure class="research-figure">
   <img
     src="{{ '/assets/images/routing/routing-plan-and-access.png' | relative_url }}"
     alt="Routing plan showing internal closure, effective top-level endpoints, and access-safe routing geometry"
-    class="large-figure"
+    loading="lazy"
   >
   <figcaption>
     Internal module closure is reduced to effective top-level endpoints.
@@ -243,11 +243,11 @@ The incremental-tree procedure is:
 The next connection therefore searches for the nearest useful **tree
 tap**, not necessarily the first routed terminal.
 
-<figure class="large-figure">
+<figure class="research-figure">
   <img
     src="{{ '/assets/images/routing/incremental-tree-routing.png' | relative_url }}"
     alt="Incremental-tree routing showing initial connection, nearest legal tree tap, and iterative tree growth"
-    class="large-figure"
+    loading="lazy"
   >
   <figcaption>
     Incremental-tree routing attaches each remaining terminal to the
@@ -309,58 +309,58 @@ space.
 The implemented routing flow separates the main responsibilities instead
 of solving all nets with one generic router.
 
-<div class="routing-flow">
+<div class="research-flow" aria-label="Routing sequence">
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Build Routing Plan</strong>
     <span>Placed Module Interfaces</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Collapse Internal Closure</strong>
     <span>Effective Top-Level Endpoints</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Classify Nets</strong>
     <span>Signal, Bulk, Guard Ring</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Resolve Safe Access</strong>
     <span>Direct or Boundary Access</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Guard-Ring / Bulk Routing</strong>
     <span>Extended Access Geometry</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Point-to-Point Routing</strong>
     <span>Access-Safe Manhattan Paths</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Multi-Terminal Routing</strong>
     <span>Incremental Tree</span>
   </div>
 
-  <div class="routing-flow-arrow">→</div>
+  <div class="research-flow-arrow" aria-hidden="true">→</div>
 
-  <div class="routing-flow-step">
+  <div class="research-flow-step">
     <strong>Export Interfaces</strong>
     <span>Selected Top-Level Ports</span>
   </div>
