@@ -357,3 +357,10 @@ The complete placement sequence is summarized below.
 
 The repaired placement is then passed to hierarchical assembly, where
 placement-dependent well connections and top-level routing can be added.
+
+<div class="page-links">
+Next:
+<a href="{{ '/routing/' | relative_url }}">
+access-aware top-level routing
+</a>.
+</div>

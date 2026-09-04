@@ -127,6 +127,23 @@ Explore the placement method →
 </div>
 
 <div class="card">
+<h3>Access-Aware Routing</h3>
+
+<p>
+Generated module interfaces are converted into effective endpoints,
+access-safe routing objects, separated net classes, and incremental
+top-level routing trees.
+</p>
+
+<p>
+<a href="{{ '/routing/' | relative_url }}">
+Explore the routing method →
+</a>
+</p>
+
+</div>
+
+<div class="card">
 <h3>Full-Flow Case Study</h3>
 
 <p>
