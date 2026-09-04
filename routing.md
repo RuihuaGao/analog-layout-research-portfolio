@@ -46,6 +46,17 @@ The routing plan combines:
 This plan acts as a contract between generation, hierarchical assembly,
 and the routing stages.
 
+<figure class="large-figure">
+  <img
+    src="{{ '/assets/images/routing/routing-plan-and-access.png' | relative_url }}"
+    alt="Routing plan showing internal closure, effective top-level endpoints, and access-safe routing geometry"
+    class="large-figure"
+  >
+  <figcaption>
+    Internal module closure is reduced to effective top-level endpoints.
+  </figcaption>
+</figure>
+
 ## Collapsing Internal Closure
 
 A generated module may export several physical terminal geometries that
@@ -229,6 +240,19 @@ The incremental-tree procedure is:
 
 The next connection therefore searches for the nearest useful **tree
 tap**, not necessarily the first routed terminal.
+
+<figure class="large-figure">
+  <img
+    src="{{ '/assets/images/routing/incremental-tree-routing.png' | relative_url }}"
+    alt="Incremental-tree routing showing initial connection, nearest legal tree tap, and iterative tree growth"
+    class="large-figure"
+  >
+  <figcaption>
+    Incremental-tree routing attaches each remaining terminal to the
+    nearest legal connection on the existing routing tree. The same
+    principle is used for multi-terminal nets and guard-ring connections.
+  </figcaption>
+</figure>
 
 This allows later branches to reuse:
 
