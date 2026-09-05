@@ -26,12 +26,9 @@ bus, a capacitor plate, a guard ring, and a small signal terminal are
 different physical routing objects and should not be accessed through one
 generic pin model.
 
-## Routing Plan Before Routing
+## Routing Plan
 
-The flow first builds a routing plan rather than immediately drawing
-top-level wires.
-
-The routing plan combines:
+The flow first builds a routing plan which combines:
 
 - placed module interfaces;
 - transformed top-level terminal geometry;
@@ -82,21 +79,18 @@ already been closed inside a child cell.
 
 ## Net Classification
 
-After effective pins are constructed, the remaining nets are classified
-according to the routing treatment they require.
+After internal closure has been collapsed, the remaining routing tasks are
+classified according to the connection treatment they require.
 
 | Net class | Top-level treatment |
 |---|---|
-| Ignored by policy | No automatic top-level route is generated |
-| Single-pin interface | The terminal is exported as a top-level interface |
-| Same-module terminal group | No inter-module route is required when local closure already exists |
-| Supply or bulk-related net | Uses supply/bulk-aware handling |
-| Point-to-point signal | Routes between two effective endpoints on different modules |
-| Multi-terminal signal | Uses incremental connection to a growing routing tree |
-| Guard-ring task | Handled separately using extended guard-ring access geometry |
+| Single-pin interface | Export as a top-level interface |
+| Supply or bulk-related net | Apply supply/bulk-aware handling |
+| Point-to-point signal | Route between two effective endpoints on different modules |
+| Multi-terminal signal | Connect incrementally to a growing routing tree |
+| Guard-ring connection | Use extended guard-ring access geometry |
 
-The classification is therefore performed after internal closure rather
-than directly from the original netlist.
+The classification is therefore performed after internal closure, not directly from the original netlist.
 
 ## Access-Safe Geometry
 
@@ -106,22 +100,21 @@ A terminal can be:
 
 - a long gate, source, or drain bus;
 - a small signal-access rectangle;
-- an extended capacitor plate;
-- a guard-ring edge or bar;
+- a capacitor plate;
+- a guard-ring edge;
 - an explicitly exported boundary terminal.
 
 The complete conductive geometry defines the electrical terminal.
-The top-level router, however, should connect only through geometry that
+The top-level router should connect only through geometry that
 is marked or inferred as safe for top-level access.
 
 For a long bus, the nearest bus edge may be preferable to the geometric
 centre.
 
 For a capacitor plate, an existing plate edge or generator-defined access
-structure may be valid while an arbitrary new via stack is not.
+structure may be valid while an arbitrary new via/contact stack is not.
 
-For a guard ring, the legal connection object is an extended edge region
-rather than a point at the centre of the module.
+A guard ring is exposed to the router as an extended connectable edge region.
 
 The access model therefore allows the top-level flow to choose among
 existing bus edges, capacitor-plate edges, exported boundary access, and
@@ -146,7 +139,7 @@ Boundary access is not added unconditionally.
 
 When two compatible routing objects can already be connected safely and
 directly, the flow prefers the direct connection and suppresses an
-unnecessary access stub.
+unnecessary access segment.
 
 Terminals that lie too deeply inside a generated module and cannot be
 safely exposed through the generic boundary-access policy are left for
@@ -215,12 +208,11 @@ same-layer bridge is preferred when it is safe.
 
 For example, two horizontally adjacent bus components can often be joined
 between their nearest edges instead of creating an unnecessary vertical
-escape, layer transition, and return path.
+access, layer transition, and return path.
 
-The direct bridge is therefore treated as a general routing preference,
-not as a special policy for one particular net.
+Safe same-layer bridging is applied as a general top-level routing policy across compatible nets.
 
-## Multi-Terminal Incremental Routing
+## Multi-Terminal Incremental Tree Routing
 
 A multi-terminal net is not routed as a set of independent point-to-point
 connections from one fixed source.
@@ -240,8 +232,7 @@ The incremental-tree procedure is:
 5. update the tree;
 6. repeat until the required endpoints are connected.
 
-The next connection therefore searches for the nearest useful **tree
-tap**, not necessarily the first routed terminal.
+The next connection therefore searches for the nearest accessible point on the existing tree, not necessarily the first routed terminal.
 
 <figure class="research-figure">
   <img
@@ -250,7 +241,7 @@ tap**, not necessarily the first routed terminal.
     loading="lazy"
   >
   <figcaption>
-    Incremental-tree routing attaches each remaining terminal to the
+    Illustrative tree growth. Incremental-tree routing attaches each remaining terminal to the
     nearest legal connection on the existing routing tree. The same
     principle is used for multi-terminal nets and guard-ring connections.
   </figcaption>
@@ -273,13 +264,13 @@ The routing policy applies the same locality principle at several levels.
 | Existing routing object | Preferred connection strategy |
 |---|---|
 | Long module bus | Use the nearest useful bus edge |
-| Existing incremental tree | Use the nearest legal tree tap |
+| Existing incremental tree | Use the nearest legal tree access |
 | Compatible same-layer buses | Prefer a direct same-layer bridge |
 | Capacitor plate | Use the generator-defined safe plate edge |
 | Guard ring | Use the nearest legal connectable edge |
 | Ordinary external terminal | Use exported access or conservative boundary access |
 
-This policy is not specific to one bias net or one module family.
+The same locality policy is used across supported nets and module families.
 
 It is intended as a general top-level strategy for selecting physically
 nearby legal access geometry.
@@ -301,13 +292,12 @@ penalized, while available inter-module or outside whitespace corridors
 are preferred.
 
 This preserves the hierarchy: top-level routing connects module
-interfaces rather than using the child-cell interior as free routing
+interfaces, and avoid using the child-cell interior as free routing
 space.
 
 ## Routing Sequence
 
-The implemented routing flow separates the main responsibilities instead
-of solving all nets with one generic router.
+The implemented routing flow separates the main responsibilities into several routing steps and policies.
 
 <div class="research-flow" aria-label="Routing sequence">
 

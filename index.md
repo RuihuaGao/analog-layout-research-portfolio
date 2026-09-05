@@ -10,7 +10,7 @@ description: >
 
 Analog circuit netlists specify electrical connectivity, but they do not fully express the physical constraints and design intent needed for layout. Device matching, local environment, guard rings, well-domain relations, passive-device access, and routing geometry must still be handled explicitly during physical implementation.
 
-This research investigates how selected analog layout techniques can be studied, organized, and translated into reusable concepts for automatic physical design.
+This research investigates how selected analog layout techniques can be studied, organized, and translated into reusable concepts for analog layout automation.
 
 <div class="callout">
 <strong>Central idea.</strong>
@@ -22,25 +22,30 @@ Analog-aware metadata provides the connection between manual layout intent and a
 The work follows a manual-to-automatic sequence:
 
 1. **Manual layout study**  
-   Selected layout techniques are examined using controlled variants of a two-stage operational amplifier.
+   Selected layout techniques are examined using controlled layout variants of a two-stage operational amplifier.
 
 2. **Technique–effect–metric framework**  
    Each layout technique is related to its intended physical effect, suitable evaluation method, implementation trade-off, and automation implication.
 
 3. **Automation-oriented representation**  
-   Generated analog modules preserve boundaries, placement footprints, terminals, routing access, guard-ring geometry, and domain information.
+   Generated analog modules preserve boundaries, placement footprints, terminals, routing access, guard-ring geometry, and well-domain information.
 
 4. **Reusable module generation**  
-   Primitive and row-level generators are composed into current mirrors, differential pairs, cascoded structures, Wilson-type mirrors, and MIM capacitor modules.
+   Primitive and row-level generators are composed into current mirrors, differential pairs, Wilson mirrors, cascoded structures, and MIM capacitor modules.
 
 5. **Analog-aware placement**  
    Multistart B*-tree placement combines generic and circuit-aware initial configurations.
 
 6. **Well-domain repair and hierarchical assembly**  
-   Post-placement repair handles n-well spacing and supports compact same-domain connections.
+   Post-placement repair handles n-well spacing and supports compact same-nwell domain connections.
 
 7. **Access-aware top-level routing**  
    Guard-ring, point-to-point, and multi-terminal connections are handled by separate routing policies.
+
+## Implementation Environment
+
+The prototype was developed in an open-source SKY130/OpenPDKs environment
+using Magic, xschem, and ngspice. 
 
 ## Explore the Research
 
@@ -50,7 +55,7 @@ The work follows a manual-to-automatic sequence:
 <h3>Manual Layout Study</h3>
 
 <p>
-Controlled layout variants examine spacing, guard-ring isolation,
+Controlled-variable layout variants examine spacing, guard-ring isolation,
 and matching-oriented placement.
 </p>
 
@@ -104,7 +109,7 @@ selected analog module families.
 
 <p>
 <a href="{{ '/generators/' | relative_url }}">
-Explore the generators →
+View the generators →
 </a>
 </p>
 
@@ -114,13 +119,13 @@ Explore the generators →
 <h3>Analog-Aware Placement</h3>
 
 <p>
-Multistart B*-tree placement combines generic and analog-informed seed
-topologies with local search and post-placement n-well-domain repair.
+Multistart B*-tree placement combines generic and analog-aware seed
+topologies with local search and post-placement n-well spacing repair.
 </p>
 
 <p>
 <a href="{{ '/placement/' | relative_url }}">
-Explore the placement method →
+View the placement method →
 </a>
 </p>
 
@@ -137,7 +142,7 @@ top-level routing trees.
 
 <p>
 <a href="{{ '/routing/' | relative_url }}">
-Explore the routing method →
+View the routing method →
 </a>
 </p>
 

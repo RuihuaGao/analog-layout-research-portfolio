@@ -82,20 +82,20 @@ The case passes through the following stages:
 Matched-device patterns, dummy devices, local buses, and
 topology-specific local routing remain inside their generated modules.
 The top-level flow works with exported module interfaces rather than
-reinterpreting internal polygons.
+reinterpreting internal geometry.
 
 ### Domain-aware integration
 
 Placement is followed by a dedicated well-domain repair stage.
 Different n-well spacing is legalized while same-domain PMOS modules
-can remain close enough for a compact local bridge.
+can remain close enough for a compact local n-well bridge.
 
 ### Different routing objects require different policies
 
 Guard rings are treated as extended domain geometries rather than
 ordinary point pins. Point-to-point nets use access-safe endpoints,
 while multi-terminal nets can reuse existing buses, capacitor plates,
-or an incremental routing tree.
+or an existing incremental routing tree.
 
 <div class="callout">
 <strong>Validation boundary.</strong>
@@ -116,8 +116,8 @@ It does not establish:
 - technology-independent generation;
 - parasitic-optimal placement or routing;
 - differential-route balancing;
-- complete layer negotiation;
-- sign-off physical or electrical verification.
+- dynamic routing-layer selection and conflict resolution;
+- final DRC/LVS, parasitic extraction, and post-layout verification.
 
 <div class="page-links">
 See also:

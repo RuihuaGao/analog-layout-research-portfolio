@@ -58,5 +58,5 @@ the demonstrated prototype flow.
 
 The underlying implementation source code is maintained separately.
 University project files, including raw circuit netlists, simulation
-testbenches and simulation code, are also not distributed through this
+testbenches, and simulation code, are also not distributed through this
 public repository.

@@ -19,10 +19,7 @@ generic B*-tree floorplanning representation with several initialization
 strategies that reflect analog structure, device polarity, circuit role,
 and well-domain relations.
 
-The objective is not to encode one fixed op-amp floorplan. Instead,
-multiple candidate organizations are generated and optimized, allowing
-generic compactness and analog-aware preferences to compete within the
-same search framework.
+The objective is not to encode one fixed op-amp floorplan. Instead, multiple candidate organizations are generated and optimized, allowing generic compactness and analog-aware preferences to compete within the same search framework.
 
 ## B*-Tree Representation
 
@@ -66,9 +63,7 @@ unchanged.
 
 ## Placement Footprints
 
-The placer operates on the effective placement geometry exported into the
-placement problem rather than reconstructing the internal transistor
-layout.
+The placer operates on the effective placement geometry exported by each generated module.
 
 The effective footprint can account for:
 
@@ -89,7 +84,7 @@ search. The placement stage therefore evaluates multiple initial
 topologies.
 
 The implementation contains both generic baseline seeds and
-analog-informed seeds.
+analog-aware seeds.
 
 ### Generic Seeds
 
@@ -101,7 +96,7 @@ Generic seeds provide topology-independent starting points, including:
 - row-aware area-descending placement;
 - stage-aware balanced variants.
 
-These seeds provide baseline solutions and reduce dependence on any one
+These seeds provide baseline solutions and reduce dependence on 
 analog-specific assumption.
 
 ### Same-Well Seeds
@@ -112,7 +107,7 @@ seeds are available.
 **Same-well horizontal**
 
 Modules belonging to the same n-well cluster are initialized as a
-left-chain. Under the adopted B*-tree convention, this produces a
+left-chain. Under the adopted B*-tree setup, this produces a
 row-like horizontal organization that is suitable for a local horizontal
 n-well bridge.
 
@@ -121,8 +116,7 @@ n-well bridge.
 The same cluster is initialized as a right-chain, producing a vertical
 stack-like candidate suitable for a vertical n-well connection.
 
-These are initialization strategies rather than universal placement
-rules. They provide the optimizer with physically meaningful candidate
+These initialization strategies provide the optimizer with physically meaningful candidate
 topologies while the objective function determines whether the resulting
 placement remains competitive.
 
@@ -141,12 +135,13 @@ organization around roles such as:
 
 - the differential-pair core;
 - current-mirror or bias structures;
-- source-connected PMOS modules;
+- power-connected PMOS modules;
+- grounded NMOS modules;
 - second-stage or side modules;
 - the compensation capacitor.
 
 The purpose of this seed is to provide a compact, routing-relevant analog
-starting point rather than to impose a hard template.
+starting point while not to impose a hard template.
 
 If the expected analog-role pattern is not recognized, the implementation
 falls back to the generic row-stack seed instead of forcing the
@@ -203,13 +198,11 @@ The process stops when no evaluated move improves the current solution or
 when the configured iteration limit is reached.
 
 Generic module rotation is not used as a neighborhood move in the
-reported implementation. Generated modules retain their allowed
-orientation rather than being freely rotated during B*-tree search.
+reported implementation. Generated modules retain their orientation and are not allowed to freely rotate during B*-tree search.
 
 ## Placement Objective
 
-Placement quality is evaluated using a weighted objective rather than
-area alone.
+Placement quality is evaluated using a weighted objective.
 
 The implemented cost model combines several classes of consideration:
 
@@ -225,7 +218,7 @@ The implemented cost model combines several classes of consideration:
 | Same-well-domain alignment | Encourage same-nwell modules to form regular, bridgeable local domains |
 | Supply-related vertical preference | Keep source/bulk rail-related modules near useful stage-local positions |
 
-These terms are soft preferences rather than a complete set of hard
+These terms are soft preferences instead of a complete set of hard
 analog constraints.
 
 The multistart search therefore evaluates several physically different
@@ -284,7 +277,7 @@ cohesion pass can move members of a shared n-well domain closer together.
 This second pass supports:
 
 - compact same-nwell islands;
-- reduced dead space between same-domain modules;
+- reduced white space between same-domain modules;
 - local n-well bridgeability;
 - preservation of useful stage-local proximity where possible.
 
@@ -292,9 +285,6 @@ The resulting sequence is therefore:
 
 **multistart B*-tree search → different-nwell spacing repair → optional
 same-nwell-domain compaction**
-
-rather than attempting to encode all n-well behavior as fixed module
-keepout boxes before placement.
 
 ## Why Well Repair Is Separate
 
@@ -323,7 +313,7 @@ The complete placement sequence is summarized below.
 
   <div class="research-flow-step">
     <strong>Effective Footprints</strong>
-    <span>&amp; Analog-Aware Metadata</span>
+    <span>Analog-Aware Metadata</span>
   </div>
 
   <div class="research-flow-arrow" aria-hidden="true">→</div>

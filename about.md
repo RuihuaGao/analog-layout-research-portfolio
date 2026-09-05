@@ -17,8 +17,8 @@ program at the Technical University of Munich, with a specialization in
 Communications Electronics.
 
 The project studies how manually developed analog layout knowledge can be
-evaluated, represented, and reused in a structure-aware automatic
-physical-design flow.
+evaluated, represented, and reused in a structure-aware analog layout
+automation flow.
 
 The work combines:
 

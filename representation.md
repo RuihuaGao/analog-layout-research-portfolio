@@ -135,7 +135,8 @@ The **module boundary** describes the generated child-cell geometry.
 The **placement footprint** describes the region that should participate
 in top-level packing and spacing decisions. Depending on the module, this
 may be represented by one rectangle or by multiple rectangles when a
-single bounding box would introduce excessive empty space.
+single bounding box would introduce excessive empty space, for example
+for a T-shaped module such as a Wilson current mirror.
 
 Keeping these concepts separate allows the placement representation to
 remain conservative without forcing every generated structure to behave
@@ -181,7 +182,7 @@ placement-dependent integration.
 | Finger ordering | Relative module placement |
 | Matching-oriented local organization | Inter-module routing |
 | Dummy-device insertion | Guard-ring and bulk-domain connection between modules |
-| Local gate and source buses | Placement-dependent n-well bridges |
+| Local gate and drain/source buses | Placement-dependent n-well bridges |
 | Diode connections | Point-to-point signal routing |
 | Internal stack-node routing | Multi-terminal routing |
 | Topology-specific local wiring | Assembly of hierarchical child cells |
@@ -206,12 +207,10 @@ The representation also retains selected semantic information such as:
 - matching relation;
 - well-domain membership;
 - source and bulk relation;
-- guard-ring role;
+- guard-ring information;
 - terminal and access classification.
 
-The purpose of this metadata is not to reproduce the complete schematic
-inside the layout engine. It preserves only the information needed for
-structure-aware physical-design decisions.
+The metadata carries the information required by downstream structure-aware physical-design stages.
 
 > **Central principle:** analog-aware metadata carries selected manual
 > layout intent into automatic physical implementation.

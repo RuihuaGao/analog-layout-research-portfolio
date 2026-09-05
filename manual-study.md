@@ -26,8 +26,8 @@ situations:
 - current-mirror structures;
 - output-connected devices;
 - a Miller compensation capacitor;
-- source and bulk domains;
-- substrate and n-well isolation structures.
+- source and bulk connection issues;
+- substrate/well isolation structures.
 
 These situations later become either generated module families or
 explicit physical-design metadata.
@@ -120,9 +120,9 @@ response in the evaluated setup.
 
 | Metric | Pre-layout | 1.0 s₀ | 3.0 s₀ | Observation |
 |---|---:|---:|---:|---|
-| GBW | 9.751 MHz | 9.574 MHz | 9.574 MHz | Sweep remains essentially flat |
-| Phase margin | 70.609° | 70.092° | 70.095° | Negligible change |
-| Positive slew rate | 27.042 V/µs | 26.133 V/µs | 26.120 V/µs | Small monotonic change |
+| GBW | 9.751 MHz | 9.574 MHz | 9.574 MHz | Post-layout shift, then essentially flat |
+| Phase margin | 70.609° | 70.092° | 70.095° | Post-layout shift, then negligible sweep change |
+| Positive slew rate | 27.042 V/µs | 26.133 V/µs | 26.120 V/µs | Small monotonic sweep change |
 | Selected critical parasitics | — | baseline | < 0.5% change | Spacing is not dominant here |
 
 <div class="callout">
@@ -136,8 +136,7 @@ effects are present.
 
 ## Guard-Ring Isolation
 
-Guard-ring insertion targets substrate and well-domain disturbance
-rather than device matching. The two manual layouts are therefore
+Guard-ring insertion targets substrate and well-domain coupling. The two manual layouts are therefore
 compared using a controlled body-domain disturbance model.
 
 <figure class="research-figure">
@@ -172,7 +171,7 @@ the guarded and unguarded body domains.
 <strong>Model boundary.</strong>
 This experiment is a comparative body-domain sensitivity study.
 It is not a calibrated substrate-extraction model and the numerical
-attenuation should not be interpreted as a silicon-accurate prediction
+attenuation should not be interpreted as an silicon-accurate prediction
 of guard-ring isolation.
 </div>
 
@@ -182,6 +181,20 @@ Matching-oriented layout techniques are evaluated statistically because
 their intended benefit appears primarily in mismatch sensitivity,
 distribution spread, and tail behaviour rather than as a large shift
 of the nominal operating point.
+
+<figure class="research-figure">
+  <img
+    src="{{ '/assets/images/manual/matching-patterns.png' | relative_url }}"
+    alt="Conceptual clustered, interdigitated, and common-centroid matched-device organizations"
+    loading="lazy"
+  >
+  <figcaption>
+    Conceptual matched-device organizations used in the manual study:
+    clustered placement, interdigitation, and common-centroid placement.
+    Dummy devices are included at the array boundaries where applicable.
+    The patterns are schematic and are not drawn to scale.
+  </figcaption>
+</figure>
 
 <figure class="research-figure">
   <img
@@ -208,7 +221,7 @@ adopted simplified model.
 
 The Monte Carlo model is comparative rather than process-calibrated.
 Behavioural threshold-voltage perturbations represent residual random,
-gradient, and edge-environment sensitivity.
+gradient, and edge-environment related mismatch terms.
 
 ## From Manual Study to Automation
 
@@ -216,8 +229,8 @@ The manual study provides the basis for later automation decisions.
 
 | Manual observation | Automation implication |
 |---|---|
-| Current mirrors require compact ratio matching and local gate sharing | Shared-diffusion interdigitation |
-| Differential pairs benefit from two-dimensional symmetry | Common-centroid generation |
+| Current mirrors require compact ratio matching | Shared-diffusion interdigitation |
+| Differential pairs benefit from two-dimensional symmetry | Common-centroid array generation |
 | Dummy devices define the local edge environment | Generator-level dummy policy |
 | Guard rings are extended physical domains | Explicit guard-ring geometry and separate routing |
 | PMOS well relations constrain legal placement | Well-domain metadata and post-placement repair |

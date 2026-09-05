@@ -20,7 +20,7 @@ in this public repository.
 
 ## Website
 
-The GitHub Pages website will be available at:
+Live research portfolio:
 
 `https://RuihuaGao.github.io/analog-layout-research-portfolio/`
 

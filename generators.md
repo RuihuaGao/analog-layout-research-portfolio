@@ -23,7 +23,7 @@ topology.
 ### Primitive Level
 
 **MOS device primitive**  
-Local active region, multifinger gate structure, contacts, and terminal
+Local active region, multifinger gate structure, contacts/vias, and terminal
 access.
 
 **MIM capacitor primitive**  
@@ -54,14 +54,14 @@ Passive capacitor construction with explicit plate terminals.
 - differential pair;
 - cascode current mirror;
 - wide-swing current mirror;
-- improved-Wilson current mirror;
 - Wilson current mirror;
+- improved-Wilson current mirror;
 - cascoded differential pair;
 - MIM capacitor module.
 
 </div>
 
-## Selected Generated Modules
+## Generated Module Examples
 
 ### MOS-Based Modules
 
@@ -94,7 +94,7 @@ Reusable device construction and local terminal access.
 
 <p class="figure-caption">
 <strong>Simple current mirror.</strong>
-Shared-diffusion interdigitation with local diode and gate routing.
+Shared-diffusion interdigitation with dummies, local diode connection, and gate sharing.
 </p>
 
 </div>
@@ -185,7 +185,7 @@ The generator is responsible for:
 
 - device-finger ordering;
 - dummy-device insertion;
-- local gate and source buses;
+- local gate and drain/source buses;
 - diode connections;
 - internal stack-node connections;
 - topology-specific local routing;
@@ -202,11 +202,11 @@ The prototype includes selected generator families covering:
 
 - single MOS devices;
 - two- and three-branch simple current mirrors;
-- differential pairs;
 - two- and three-branch cascode current mirrors;
 - Wilson current mirrors;
 - improved-Wilson current mirrors;
 - wide-swing current mirrors;
+- differential pairs;
 - cascoded differential pairs;
 - MIM capacitors.
 

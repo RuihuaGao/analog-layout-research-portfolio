@@ -182,7 +182,10 @@ body {
 .main-content > p,
 .main-content > ul,
 .main-content > ol,
-.main-content > table,
+.main-content > table {
+  width: 100%;
+  max-width: 100%;
+}
 .main-content > blockquote {
   max-width: var(--text-width);
 }

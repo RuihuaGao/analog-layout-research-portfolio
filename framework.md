@@ -66,36 +66,40 @@ translated into automation.
 Two devices implemented in the same technology may require different
 layout treatment because their circuit roles are different.
 
-A differential pair, for example, is primarily a pair-matching problem.
-A current mirror additionally requires compact ratio matching, gate
-sharing, and local diode routing. A guard ring addresses substrate or
-well-domain control rather than matching. A compensation capacitor
-introduces plate-specific access and top-level routing concerns.
+A differential pair, for example, is primarily a pair-matching and
+symmetry problem. A current mirror additionally requires compact ratio
+matching, gate sharing, and local diode routing. A guard ring addresses
+substrate/well coupling rather than matching. A compensation
+capacitor introduces plate-specific access and top-level routing concerns.
 
 The circuit role and physical intent therefore need to survive beyond
 the schematic or netlist.
 
-## Technique–Effect–Metric Mapping
+## Technique–Effect–Metric–Trade-Off Mapping
 
-| Layout-relevant structure | Technique | Targeted effect | Evaluation | Automation implication |
+The studied layout techniques can be summarized by the physical effect
+they target, the metric used to evaluate that effect, the associated
+implementation trade-off, and the corresponding automation implication.
+
+| Technique | Targeted physical effect | Evaluation metric | Main trade-off | Automation implication |
 |---|---|---|---|---|
-| Differential pair | Common centroid + dummies | Gradient and edge mismatch | Statistical spread and tails | Common-centroid generator |
-| Current mirror | Interdigitation + dummies | Ratio mismatch and local environment | Statistical robustness | Interdigitation generator |
-| Substrate / well domain | Guard ring | Disturbance coupling and body reference | AC and transient disturbance transfer | Domain metadata and bulk routing |
-| Capacitor / extended terminal | Access-aware routing | Parasitic loading and unsafe access | Endpoint and access legality | Terminal-access policy |
-| Source / bulk relation | Domain-aware connection | Body effect and well feasibility | Bias and domain consistency | Source/bulk and well metadata |
+| Guard ring | Substrate and well-domain disturbance isolation | AC and transient disturbance transfer | Area | Represent guard-ring domain geometry and extended routing access |
+| Interdigitation | Averaging of spatial process gradient and local-environment variation | Layout-aware Monte Carlo | Routing complexity | Use interdigitated generator patterns for matched current mirrors |
+| Common centroid | Cancellation of spatial gradient mismatch through two-dimensional symmetry | Layout-aware Monte Carlo | Area and routing complexity | Use common-centroid generator patterns for differential pairs |
+| Dummy devices | Reduction of edge-environment imbalance in matched arrays | Layout-aware Monte Carlo | Area and dummy routing | Attach dummy-device policies to matched generator families |
+| Source / bulk planning | Body-effect control and substrate / well reference consistency | Bias and domain consistency | Body-domain connection constraints | Export source/bulk metadata and guard-ring relations |
+| Access-aware routing | Avoidance of unnecessary detours and unsafe internal access | Route compactness and endpoint legality | Possible routing asymmetry | Separate boundary access, point-to-point routing, and multi-terminal routing |
 
 <div class="callout">
-<strong>Central idea.</strong>
-Analog-aware metadata provides the bridge between manual layout intent
-and automatic physical implementation.
+<strong>Framework outcome.</strong>
+The technique–effect–metric–trade-off mapping determines which layout
+information should be preserved as generator metadata and which decisions
+remain with placement, well-domain handling, or routing.
 </div>
 
 ## From Technique to Machine-Usable Information
 
-The framework does not attempt to predict complete post-layout circuit
-performance from geometry. Its purpose is to identify which information
-must be preserved.
+The framework identifies the layout information that must be preserved for later physical-design decisions. It is not intended as a predictive post-layout performance model.
 
 Examples include:
 
@@ -125,7 +129,7 @@ A differential pair may combine:
 
 A cascoded current mirror may combine:
 
-- interdigitated matched rows;
+- both shared- and split-diffusion interdigitation matched rows;
 - isolated stack nodes;
 - topology-specific local routing;
 - module-level guard-ring and bulk policies.
