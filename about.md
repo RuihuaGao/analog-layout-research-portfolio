@@ -2,7 +2,7 @@
 layout: default
 title: About
 description: >
-  Background and contact information for the research portfolio.
+  Background and author information for the research portfolio.
 permalink: /about/
 ---
 
@@ -12,9 +12,13 @@ permalink: /about/
 
 **Analysis and Conceptualization of Analog Layout Techniques**
 
-Master’s thesis in Communication Electronics at the Technical University of Munich.
+Master’s thesis completed as part of the M.Sc. Communications Engineering
+program at the Technical University of Munich, with a specialization in
+Communications Electronics.
 
-The project studies how manually developed analog layout knowledge can be evaluated, represented, and reused in a structure-aware automatic physical-design flow.
+The project studies how manually developed analog layout knowledge can be
+evaluated, represented, and reused in a structure-aware automatic
+physical-design flow.
 
 The work combines:
 
@@ -47,11 +51,15 @@ This portfolio follows the central research path of the thesis:
 
 **Ruihua Gao**
 
-M.Sc. Communications Engineering  
+M.Sc. in Communications Engineering  
+Specialization: Communications Electronics  
 Technical University of Munich
-
-Contact information, curriculum vitae, and selected application material will be added after the public content and permissions have been reviewed.
 
 ## Repository Purpose
 
-This repository is a public research portfolio. It is not the development repository of the implementation and does not provide access to restricted university project material.
+This repository is a public research portfolio and technical documentation
+site for the thesis project.
+
+The implementation source code and university project files, including raw
+circuit netlists and simulation code, are maintained separately and are not
+distributed through this repository.

@@ -11,16 +11,12 @@ full-flow case study.
 
 ## Public Scope
 
-This repository contains documentation and selected presentation material.
+This repository contains the public research website, selected figures,
+summarized results, and technical documentation derived from the thesis.
 
-It does not contain:
-
-- source code;
-- raw netlists;
-- layout databases;
-- generated implementation metadata;
-- raw simulation data;
-- institutional project artifacts.
+The implementation source code is maintained separately. University project
+files, including raw circuit netlists and simulation code, are not included
+in this public repository.
 
 ## Website
 
@@ -30,10 +26,10 @@ The GitHub Pages website will be available at:
 
 ## Status
 
-Development is organized in three stages:
+Development was organized in three stages:
 
 - [x] Site structure and public-scope pages
 - [x] Core research content and selected figures
 - [x] Detailed representation, placement, and routing documentation
 
-The portfolio is now in final review and visual-polish status.
+The first complete public portfolio version is now available.

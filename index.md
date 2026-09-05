@@ -163,9 +163,12 @@ View the case study →
 
 ## Public Portfolio Scope
 
-This website presents the research motivation, methodology, selected figures, and aggregated results of the project.
+This website presents the research motivation, methodology, selected
+figures, summarized results, and technical documentation of the project.
 
-Source code, raw netlists, layout databases, generated metadata, raw simulation data, and institutional project artifacts are not publicly distributed.
+The implementation source code and university project files, including raw
+circuit netlists and simulation code, are maintained separately and are not
+distributed through this public portfolio.
 
 <div class="page-links">
 Continue with

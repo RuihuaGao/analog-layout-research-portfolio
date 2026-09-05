@@ -50,18 +50,13 @@ The corresponding numerical results should therefore be read as comparative evid
 
 ## Public Availability
 
-The implementation was developed as part of a university master’s thesis and is maintained in an institutional LRZ GitLab repository.
+This website is a public research portfolio derived from the master’s thesis.
 
-The following materials are not publicly distributed through this portfolio:
+It presents selected figures, summarized results, methodological
+explanations, and technical documentation that describe the research and
+the demonstrated prototype flow.
 
-- source code;
-- complete development history;
-- raw circuit netlists;
-- layout databases;
-- generator output files;
-- detailed metadata and routing records;
-- raw simulation data;
-- internal validation logs;
-- institutional project artifacts.
-
-This website contains only selected figures, summarized results, methodological explanations, and research-oriented documentation suitable for public presentation.
+The underlying implementation source code is maintained separately.
+University project files, including raw circuit netlists, simulation
+testbenches and simulation code, are also not distributed through this
+public repository.
