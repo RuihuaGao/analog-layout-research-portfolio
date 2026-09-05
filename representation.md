@@ -47,49 +47,51 @@ summarized below.
 <div class="research-flow" aria-label="Automation-oriented representation flow">
 
   <div class="research-flow-step">
-    <strong>Circuit Structure</strong>
-    <span>&amp; Layout Intent</span>
+    <strong>Circuit-Level Structure</strong>
+    <span>Analog Role and Net Connectivity</span>
   </div>
 
   <div class="research-flow-arrow" aria-hidden="true">→</div>
 
   <div class="research-flow-step">
     <strong>Generator Specification</strong>
-    <span>Structure and Layout Policy</span>
+    <span>Family, Topology, Parameters &amp; Net Mapping</span>
   </div>
 
   <div class="research-flow-arrow" aria-hidden="true">→</div>
 
   <div class="research-flow-step">
-    <strong>Generated Module</strong>
-    <span>Hierarchical Child Cell</span>
+    <strong>Generated Module Interface</strong>
+    <span>Geometry, Terminals, Access &amp; Domain Metadata</span>
   </div>
 
   <div class="research-flow-arrow" aria-hidden="true">→</div>
 
   <div class="research-flow-step">
-    <strong>Module Interface</strong>
-    <span>&amp; Analog-Aware Metadata</span>
+    <strong>Placement Representation</strong>
+    <span>Footprints, Domains &amp; Connectivity Hints</span>
   </div>
 
   <div class="research-flow-arrow" aria-hidden="true">→</div>
 
   <div class="research-flow-step">
-    <strong>Physical Integration</strong>
-    <span>Placement, Well Handling &amp; Assembly</span>
+    <strong>Routing Representation</strong>
+    <span>Effective Pins, Access &amp; Blockages</span>
   </div>
 
   <div class="research-flow-arrow" aria-hidden="true">→</div>
 
   <div class="research-flow-step">
-    <strong>Access-Aware Routing</strong>
-    <span>Top-Level Connectivity</span>
+    <strong>Hierarchical Top-Level Layout</strong>
+    <span>Placed Modules and Top-Level Connections</span>
   </div>
 
 </div>
 
-The generator is therefore not only a geometry producer. It also creates
-the physical-design interface used by later stages.
+Each stage repackages the circuit and layout information for the next
+physical-design task. The generated module interface is the central
+boundary: internal analog layout remains inside the child cell, while
+placement and routing operate on the exported geometry and metadata.
 
 ## Generated Module Interface
 
