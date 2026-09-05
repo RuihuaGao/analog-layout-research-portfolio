@@ -55,6 +55,9 @@ M.Sc. in Communications Engineering
 Specialization: Communications Electronics  
 Technical University of Munich
 
+For research, PhD, or professional inquiries:  
+[ruihua_gao@outlook.com](mailto:ruihua_gao@outlook.com)
+
 ## Repository Purpose
 
 This repository is a public research portfolio and technical documentation
